@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Guillaume, Richard, informatique, CV, réseau">
+    <meta name="author" content="Guillaume Richard">
+    <meta name="description" content="Site CV de Guillaume Richard">
+    <title>Guillaume Richard - CV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div id="stickyContainer">
+            <div class="container Fixed">
+            <div class="toggle">
+                <div class="circle"></div>
+            </div>
+            <span class="text">Clair</span>
+            </div>
+            <div id="printer-container">
+                <img id="printer" src="printer-free-3-svgrepo-com.svg" alt="">
+            </div>
+        </div>
+        
+       
+
+        <div id="left">
+            <img src="guillaume-pp2.jpg" alt="pp" class="pp">
+            <div id="title" class="card">
+                <h1>Guillaume Richard</h1>
+                <p>Étudiant en informatique - spécialisation réseaux</p>
+            </div>
+            <div id="info">
+                <p>21 nov. 2003</p>
+                <p>2, Chemin de chez moi<br> 6500 Beaumont</p>
+                <p>+32 09876543</p>
+                <p>guillaume.richard@std.heh.be</p>
+            </div>
+            
+        </div>
+
+
+
+
+
+        <div id="center">
+            <div id="middle">
+                <div class="card retractable-card ">
+                    <div class="card-title">
+                        <h2>Profil professionnel</h2>
+                        <img class="chevron" src="chevron-up.svg" alt="">
+                    </div>
+                    <p>Informaticien axé cybersécurité formé dans plusieurs domaines : Developpeur, WebMaster, SysAdmin, Administrateur réseau, etc..</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <h2>Compétences professionnelles</h2>
+                        <img class="deployed chevron" src="chevron-up.svg" alt="">
+                    </div>
+                
+                    <h3>Domaines de compétences maitrisés :</h3>
+                    <ul>
+                        <li>Design, gestion et sécurisation d’un réseau informatique</li>
+                        <li>Développement d’application (Back-end et Front-end) (voir langages ci-contre)</li>
+                        <li>Administrateur système (Linux, Windows Server 2019)</li>
+                        <li>Design et gestion de base de données</li>
+                        <li>Configuration de matériel Cisco et Fortinet</li>
+                        <li>Maitrise de la méthode de travail SCRUM (méthode agile)</li>
+                    </ul>
+
+                    <h3>Languages informatiques :</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>C# (.Net)</li>
+                        <li>Javascript (JQuery, React)</li>
+                        <li>PHP</li>
+                        <li>SQL</li>
+                        <li>BASH</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div id="right">
+                <div class="card ">
+                    <div class="card-title">
+                        <h2>Parcours éducatif</h2>
+                        <img class="deployed chevron" src="chevron-up.svg" alt="">
+                    </div>
+                    
+                    <ul>
+                        <li>Juin 2021 - Optention du CESS <br> Option audiovisuel - Athénée royale Simone Veil de Beaumont</li>
+                        <li>Actuellement : <br> Bachelier en Informatique & systèmes orientation réseaux & télécommunications (2ème BAC) - HEH Mons</li>
+                    </ul>
+                </div>
+
+                <div class="card ">
+                    <div class="card-title">
+                        <h2>Langues</h2>
+                        <img class="deployed chevron" src="chevron-up.svg" alt="">
+                    </div>
+                    
+                    <ul>
+                        <li>Français : Langue maternelle</li>
+                        <li>Anglais : B2</li>
+                        <li>Néerlandais : A1</li>
+                    </ul>
+                </div>
+
+                <div class="card ">
+                    <div class="card-title">
+                        <h2>Centres d'intérêt</h2>
+                        <img class="deployed chevron" src="chevron-up.svg" alt="">
+                    </div>
+                    
+                    <ul>
+                        <li>Escalade</li>
+                        <li>Théâtre</li>
+                        <li>Photographie</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="jquery-3.6.3.min.js"></script>
+<script>
+
+    $(".card-title img").click(function(){
+        if($(this).hasClass('deployed')){
+            $(this).removeClass('deployed')
+            var parent = $( this ).parent().get( 0 );
+            var parent2 = $(parent).parent().get( 0 );
+            $(parent2).addClass('retractable-card');
+        }else{
+            $(this).addClass('deployed');
+            var parent = $( this ).parent().get( 0 );
+            var parent2 = $(parent).parent().get( 0 );
+            $(parent2).removeClass('retractable-card');
+        }
+
+        
+    });
+
+
+
+    let active = false;
+    $(".toggle").click(function(){
+        active = !active
+        if (active) {
+            $(".toggle").addClass('active');
+            $(".text").text('Sombre');
+            
+            $("p, li, h3, h2, h1").css("color", "white");
+
+            $(".card").css({"background-color": "#424242", "border": "1px solid #323232"});
+            $("body").css("background-color", "#323232");
+            $("main").css("background-color", "#383838");
+            $("#left").css("background-color", "#0f4b83");
+            $('.chevron').css("filter", "invert(1)");
+            $("#stickyContainer").css("background-color", "#606060");
+        } else {
+            $(".card").css({"background-color": "white", "border": "1px solid #dee2e6"});
+            $(".toggle").removeClass('active');
+            $(".text").text('Clair');
+            $("p, li, h3, h2, h1").css("color", "#323232");
+            $('#info p').css("color", "white");
+            $("body").css("background-color", "white");
+            $("main").css("background-color", "#EFEFEF");
+            $("#left").css("background-color", "#083968");
+            $('.chevron').css("filter", "invert(0)");
+            $("#stickyContainer").css("background-color", "#eeeeee");
+        }
+    })
+
+    $('#printer-container').click(function() {
+        $(".toggle").removeClass('active');
+        $(".text").text('Clair');
+        $("p, li, h3, h2, h1").css("color", "#323232");
+        $("#left p").css("color", "white");
+        $("#title p").css("color", "black");
+        $("body").css("background-color", "white");
+        $("main").css("background-color", "#EFEFEF");
+        $(".card").css({"background-color": "white", "border": "1px solid #dee2e6"});
+        $("#left").css("background-color", "#083968");
+        $('.chevron').css("filter", "invert(0)");
+        $("#stickyContainer").css("background-color", "#eeeeee");
+        $("#stickyContainer").css("display", "none");
+        
+
+        $('.card-title img').each(function() {
+            $(this).addClass('deployed');
+            var parent = $( this ).parent().get( 0 );
+            var parent2 = $(parent).parent().get( 0 );
+            $(parent2).removeClass('retractable-card');
+        })
+        window.print();
+
+        $("#stickyContainer").css("display", "flex");
+    })
+
+
+    
+    
+</script>
+</html>
